@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.imooc.o2o.dao.LocalAuthDao">
+	<resultMap type="LocalAuth" id="LocalAuthMap">
+		<result column="local_auth_id" property="localAuthId"/>
+		<result column="username" property="username"/>
+		<result column="password" property="password"/>
+		<result column="create_time" property="createTime"/>
+		<result column="last_edit_time" property="lastEditTime"/>
+		<association property="personInfo" column="user_id" javaType="PersonInfo"
+			select="com.imooc.o2o.dao.PersonInfoDao.queryPersonInfoById"/>
+	</resultMap>
+	<select id="queryLocalByUserNameAndPwd" resultMap="LocalAuthMap">
+		select local_auth_id,user_id,username,password,create_time,last_edit_time
+		from tb_local_auth where username=#{username} and password=#{password}
+	</select>
+	
+	<select id="queryLocalByUserId" resultMap="LocalAuthMap">
+		select local_auth_id,user_id,username,password,create_time,last_edit_time
+		from tb_local_auth where user_id=#{userId}
+	</select>
+	
+	<insert id="insertLocalAuth">
+		insert into tb_local_auth(user_id,username,password,create_time,last_edit_time)
+		values(#{personInfo.userId},#{username},#{password},#{createTime},#{lastEditTime})
+	</insert>
+	
+	<update id="updateLocalAuth">
+		update  tb_local_auth 
+		<set>
+			<if test="newPassword!=null">
+				password=#{newPassword},
+			</if>
+			<if test="lastEditTime!=null">
+				last_edit_time=#{lastEditTime}
+			</if>
+		</set>
+		where user_id=#{userId}
+		and username=#{username}
+		and
+		password=#{password}
+	</update>
+	
+	<select id="verification" resultType="int">
+		select count(*) from tb_local_auth where username=#{username}
+	</select>
+	
+</mapper>

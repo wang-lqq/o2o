@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.imooc.o2o.dao.WechatAuthDao">
+	<resultMap type="WechatAuth" id="WechatAuthMap">
+		<result column="wechat_auth_id" property="wechatAuthId"/>
+		<result column="open_id" property="openId"/>
+		<result column="create_time" property="createTime"/>
+		<association property="personInfo" column="user_id" javaType="PersonInfo"
+			select="com.imooc.o2o.dao.PersonInfoDao.queryPersonInfoById"/>
+	</resultMap>
+	<select id="queryWechatInfoByOpenId" resultMap="WechatAuthMap">
+		select
+		wechat_auth_id,
+		open_id,
+		create_time,
+		user_id
+		from tb_wechat_auth where open_id=#{we.openId}
+	</select>
+	<insert id="insertWechatAuth">
+		insert into tb_wechat_auth values(null,#{personInfo.userId},#{openId},#{createTime})
+	</insert>
+</mapper>

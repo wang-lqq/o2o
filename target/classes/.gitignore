@@ -1,0 +1,15 @@
+/AreaDao.xml
+/HeadLineDao.xml
+/LocalAuthDao.xml
+/PersonInfoDao.xml
+/ProductCategoryDao.xml
+/ProductDao.xml
+/ProductImgDao.xml
+/ShopCategoryDao.xml
+/ShopDao.xml
+/WechatAuthDao.xml
+/com/
+/spring-dao.xml
+/spring-redis.xml
+/spring-service.xml
+/spring-web.xml

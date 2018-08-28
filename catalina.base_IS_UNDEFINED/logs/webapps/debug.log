@@ -1,0 +1,9 @@
+2018-07-09 17:28:22.347 [main] DEBUG com.imooc.o2o.dao.LocalAuthDao.verification - ==>  Preparing: select count(*) from tb_local_auth where username=? 
+2018-07-09 17:28:22.569 [main] DEBUG com.imooc.o2o.dao.LocalAuthDao.verification - ==> Parameters: wlll(String)
+2018-07-09 17:28:41.163 [main] DEBUG com.imooc.o2o.dao.LocalAuthDao.verification - ==>  Preparing: select count(*) from tb_local_auth where username=? 
+2018-07-09 17:28:41.300 [main] DEBUG com.imooc.o2o.dao.LocalAuthDao.verification - ==> Parameters: wlll(String)
+2018-07-09 17:31:14.991 [main] DEBUG com.imooc.o2o.dao.LocalAuthDao.verification - ==>  Preparing: select count(*) from tb_local_auth where username=? 
+2018-07-09 17:31:15.077 [main] DEBUG com.imooc.o2o.dao.LocalAuthDao.verification - ==> Parameters: wlll(String)
+2018-07-09 17:31:47.912 [main] DEBUG com.imooc.o2o.dao.LocalAuthDao.verification - ==>  Preparing: select count(*) from tb_local_auth where username=? 
+2018-07-09 17:31:48.002 [main] DEBUG com.imooc.o2o.dao.LocalAuthDao.verification - ==> Parameters: wlll(String)
+2018-07-09 17:31:48.155 [main] DEBUG com.imooc.o2o.dao.LocalAuthDao.verification - <==      Total: 1
